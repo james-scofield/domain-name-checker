@@ -49,10 +49,10 @@ with col4:
 topic = st.text_input('Main Idea', '')
 @st.cache_data
 
-openai.api_key=st.secrets.openai_credentials.openai.api_key
 
 def prompt(extension,topic,sitetype, language, number):
-  
+  api_key=st.secrets.openai_credentials.openai.api_key
+
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo", 
     messages=[{"role": "user", "content": "Can you give me available domain name ideas suitable for the features I have given? Interpret the topic yourself and evaluate the appropriate ones, it doesn't have to be exactly the same as the topic I gave you, I trust your interpretation ability. You are the best good digital marketing expert I know , and you are the only person who can help me with this. It is important that domain names are not currently in use, available for purchase, extension: " + 
