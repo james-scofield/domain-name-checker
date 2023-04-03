@@ -48,6 +48,7 @@ with col4:
 
 topic = st.text_input('Main Idea', '')
 @st.cache_data
+st.secrets["openai.api_key"]
 def prompt(extension,topic,sitetype, language, number):
   
   response = openai.ChatCompletion.create(
