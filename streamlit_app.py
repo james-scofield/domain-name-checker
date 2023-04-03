@@ -51,7 +51,7 @@ topic = st.text_input('Main Idea', '')
 
 
 def prompt(extension,topic,sitetype, language, number):
-  api_key=st.secrets.openai_credentials.openai.api_key
+  api_key=st.secrets.openai_credentials.api_key
 
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo", 
