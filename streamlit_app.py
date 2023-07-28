@@ -47,9 +47,7 @@ with col4:
     )
 
 topic = st.text_input('Main Idea', '')
-@st.cache_data
-
-
+@st.cache
 def prompt(extension,topic,sitetype, language, number):
   openai.api_key=st.secrets.openai_credentials.api_key
 
@@ -61,7 +59,7 @@ def prompt(extension,topic,sitetype, language, number):
   gptresponse = (response["choices"][0]["message"]["content"])
   return gptresponse
 
-@st.cache_data
+@st.cache
 def final(listfromgpt):
 
   finallist = []
@@ -83,7 +81,7 @@ headers = {"Authorization" : "sso-key {}:{}".format(api_key, secret_key)}
 # Domain availability and appraisal end points
 godaddy_url = "https://api.ote-godaddy.com/v1/domains/available?domain="
 # Get availability information by calling availability API
-@st.cache_data
+@st.cache
 def godaddy(godaddy_url,finallist):
     availability_res = requests.post(godaddy_url, json=finallist, headers=headers)
     # Get only available domains with price range
